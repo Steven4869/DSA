@@ -1,9 +1,8 @@
 #include <iostream>
 using namespace std;
 
-int SubsetSum(int arr[], int sum, int n)
+int CountSubset(int arr[], int sum, int n)
 {
-    // Base condition
     int t[n + 1][sum + 1];
     for (int i = 0; i < n + 1; i++)
     {
@@ -19,14 +18,13 @@ int SubsetSum(int arr[], int sum, int n)
             }
         }
     }
-    // Choice Diagram
     for (int i = 1; i < n + 1; i++)
     {
         for (int j = 1; j < sum + 1; j++)
         {
             if (arr[i - 1] <= j)
             {
-                t[i][j] = t[i - 1][j - arr[i - 1]] || t[i - 1][j];
+                t[i][j] = t[i - 1][j] + t[i - 1][j - arr[i - 1]];
             }
             if (arr[i - 1] > j)
             {
@@ -36,28 +34,12 @@ int SubsetSum(int arr[], int sum, int n)
     }
     return t[n][sum];
 }
-
-int equalPartition(int arr[], int n)
-{
-    int sum = 0;
-    for (int i = 0; i < n; i++)
-    {
-        sum = sum + arr[i];
-    }
-    if (sum % 2 != 0)
-    {
-        return false;
-    }
-    else if (sum % 2 == 0)
-    {
-        return SubsetSum(arr, sum / 2, n);
-    }
-    return 0;
-}
-
 int main()
 {
-    int arr[] = {1, 2, 5};
+    int arr[] = {2, 3, 5, 6, 8, 10};
     int n = sizeof(arr) / sizeof(arr[0]);
-    cout << equalPartition(arr, n);
+    int sum = 10;
+    cout << "The count for sum is "
+         << CountSubset(arr, sum, n);
+    return 0;
 }
