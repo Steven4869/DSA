@@ -33,7 +33,7 @@ int LCS(string x, string y, int n, int m)
 
 int main()
 {
-    string x = "agbcba";
+    string x = "aba";
     string y = x;
     reverse(y.begin(), y.end());
     int n = x.size();
