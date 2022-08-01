@@ -23,12 +23,14 @@ int CountPath(int i, int j, int m, int n)
     {
         return 1;
     }
+    // Base Condition
     if (i >= m || j >= n)
     {
         return 0;
     }
     else
     {
+        // Left Path + Right Path
         return CountPath(i + 1, j, m, n) + CountPath(i, j + 1, m, n);
     }
     return -1;
