@@ -82,7 +82,7 @@ void SNextGreaterElement(int arr[], int n)
 // TC:O(N) SC:O(N)
 int main()
 {
-    int arr[] = {4, 5, 2, 25};
+    int arr[] = {3, 3, 2, 1, 1, 2, 3};
     int n = sizeof(arr) / sizeof(arr[0]);
     SNextGreaterElement(arr, n);
     return 0;
