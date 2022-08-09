@@ -48,6 +48,8 @@ bool GenerateParanthesis(string str)
     }
     return false;
 }
+
+// TC:O(N) SC:O(N)
 int main()
 {
     string str = "[()]{}{[()()]()}";
