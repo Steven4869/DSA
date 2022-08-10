@@ -42,7 +42,7 @@ int main()
 {
     int arr[] = {4, 5, 6, 7, 0, 1, 2};
     int target = 0;
-    int n = sizeof(arr) / sizeof(arr[0]);
+    +int n = sizeof(arr) / sizeof(arr[0]);
 
     cout << SearchRotated(arr, target, n);
     return 0;
