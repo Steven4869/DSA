@@ -33,8 +33,8 @@ int LCS(string x, string y, int n, int m)
 
 int main()
 {
-    char x[] = "AGGTAB";
-    char y[] = "GXTXAYB";
+    char x[] = "aebcbda";
+    char y[] = "adbcbea";
     int n = strlen(x);
     int m = strlen(y);
     cout << "Length of LCS is " << LCS(x, y, n, m);
