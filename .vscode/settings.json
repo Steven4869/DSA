@@ -11,7 +11,10 @@
         "array": "cpp",
         "deque": "cpp",
         "map": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "__locale": "cpp",
+        "__string": "cpp",
+        "regex": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
