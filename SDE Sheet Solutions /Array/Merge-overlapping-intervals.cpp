@@ -76,10 +76,48 @@ void MergeIntervals(Interval arr[], int n)
     return;
 }
 
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>> MergeInterval(vector<vector<int>> intervals)
+{
+    // Initalise result
+    vector<vector<int>> result;
+    sort(intervals.begin(), intervals.end());
+    if (intervals.size() == 0)
+    {
+        return result;
+    }
+    result.push_back(intervals[0]);
+    int j = 0;
+    for (int i = 1; i < intervals.size(); i++)
+    {
+        if (result[j][1] >= intervals[i][0])
+        {
+            result[j][1] = max(result[j][1], intervals[i][1]);
+        }
+        else
+        {
+            result.push_back(intervals[i]);
+            j++;
+        }
+    }
+    return result;
+}
 int main()
 {
-    Interval arr[] = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    MergeIntervals(arr, n);
-    return 0;
+    // Interval arr[] = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+    // int n = sizeof(arr) / sizeof(arr[0]);
+    // MergeIntervals(arr, n);
+    // return 0;
+
+    vector<vector<int>> Intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+    vector<vector<int>> ans = MergeInterval(Intervals);
+    for (int i = 0; i < ans.size(); i++)
+    {
+        for (int j = 0; j < ans[0].size(); j++)
+        {
+            cout << "[" << ans[i][j] << "]";
+        }
+    }
 }

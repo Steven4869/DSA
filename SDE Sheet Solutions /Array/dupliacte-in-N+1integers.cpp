@@ -31,10 +31,25 @@ int Duplicate(int arr[])
     }
     return slow; // point at which they meet
 }
+int XorDuplicate(int arr[], int n)
+{
+    int res = 0;
+    for (int i = 0; i < n; i++)
+    {
+        res = res ^ arr[i];
+    }
+    for (int i = 0; i < n; i++)
+    {
+        res = res ^ i;
+    }
+    return res;
+}
 
 int main()
 {
     int arr[] = {1, 3, 4, 2, 2};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    // cout << XorDuplicate(arr, n);
     cout << Duplicate(arr);
     return 0;
 }

@@ -40,6 +40,41 @@ void Levelorder(Node *root)
     }
 }
 
+vector<vector<int>> LevelOrder(Node *root)
+{
+    // Base condition
+    if (root == NULL)
+    {
+        return;
+    }
+    // Intialsie the result vector
+    vector<vector<int>> result;
+    queue<Node *> q;
+    q.push(root);
+    while (!q.empty())
+    {
+        int n = q.size();
+
+        vector<int> value;
+        for (int i = 0; i < n; i++)
+        {
+            Node *temp = q.front();
+            q.pop();
+            value.push_back(temp->data);
+
+            if (temp->right)
+            {
+                q.push(temp->right);
+            }
+            if (temp->left)
+            {
+                q.push(temp->left);
+            }
+        }
+        result.push_back(temp);
+    }
+    return result;
+}
 // Creating a New Node
 
 struct Node *newNode(int data)

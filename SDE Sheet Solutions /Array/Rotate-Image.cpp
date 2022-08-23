@@ -41,6 +41,22 @@ void solve(int arr[][N])
 }
 
 // TC:O(N^2) SC:O(1)
+
+void rotate(vector<vector<int>> &matrix)
+{
+    int n = matrix.size();
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i; j < n; j++)
+        {
+            swap(matrix[i][j], matrix[j][i]);
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        reverse(matrix[i].begin(), matrix[i].end());
+    }
+}
 int main()
 {
     int arr[N][N] = {{1, 2, 3, 4},

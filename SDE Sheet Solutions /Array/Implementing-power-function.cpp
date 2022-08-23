@@ -22,16 +22,15 @@ double myPower(double x, int n)
     // For negative number
     if (n < 0)
     {
-        x = 1 / x;
-        n = -n;
+        return 1 / x * myPower(1 / x, -(n + 1));
     }
     return (n % 2 == 0) ? myPower(x * x, (n / 2)) : x * myPower(x * x, (n / 2));
 }
 
 int main()
 {
-    double x = 2.1;
-    int n = -10;
+    double x = 5;
+    int n = -2;
     cout << myPower(x, n);
     return 0;
 }
