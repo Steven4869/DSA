@@ -1,20 +1,30 @@
+
+// CPP program to remove duplicate character
+// from character array and print in sorted
+// order
 #include <bits/stdc++.h>
 using namespace std;
 
-string Duplicates(string s, int n)
+char *removeDuplicate(char str[], int n)
 {
-    unordered_set<char> s(s, s + n);
+    // create a set using string characters
+    // excluding '\0'
+    unordered_set<char> s(str, str + n - 1);
+
+    // print content of the set
     int i = 0;
-    for (auro x : s)
-    {
-        s[i++] = x;
-    }
-    return s;
+    for (auto x : s)
+        str[i++] = x;
+    str[i] = '\0';
+
+    return str;
 }
+
+// Driver code
 int main()
 {
-    string s = "Hello";
-    int n = s.size();
-    cout << Duplicates(s, n);
+    char str[] = "geeksforgeeks";
+    int n = sizeof(str) / sizeof(str[0]);
+    cout << removeDuplicate(str, n);
     return 0;
 }

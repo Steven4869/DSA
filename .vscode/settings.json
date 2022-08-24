@@ -1,20 +1,22 @@
 {
-    "files.associations": {
-        "iostream": "cpp",
-        "ostream": "cpp",
-        "vector": "cpp",
-        "string": "cpp",
-        "iosfwd": "cpp",
-        "unordered_map": "cpp",
-        "random": "cpp",
-        "algorithm": "cpp",
-        "array": "cpp",
-        "deque": "cpp",
-        "map": "cpp",
-        "string_view": "cpp",
-        "__locale": "cpp",
-        "__string": "cpp",
-        "regex": "cpp"
-    },
-    "C_Cpp.errorSquiggles": "Disabled"
+  "files.associations": {
+    "iostream": "cpp",
+    "ostream": "cpp",
+    "vector": "cpp",
+    "string": "cpp",
+    "iosfwd": "cpp",
+    "unordered_map": "cpp",
+    "random": "cpp",
+    "algorithm": "cpp",
+    "array": "cpp",
+    "deque": "cpp",
+    "map": "cpp",
+    "string_view": "cpp",
+    "__locale": "cpp",
+    "__string": "cpp",
+    "regex": "cpp",
+    "unordered_set": "cpp",
+    "iterator": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "Disabled"
 }
