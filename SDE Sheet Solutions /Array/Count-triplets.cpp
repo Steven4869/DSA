@@ -19,7 +19,7 @@ int CountTriplets(int arr[], int n)
     unordered_set<int> st(arr, arr + n);
     for (int i = 0; i < n; i++)
     {
-        for (int j = i + 1; j++)
+        for (int j = i + 1; j < n; j++)
         {
             if (st.count(arr[i] + arr[j]))
             {

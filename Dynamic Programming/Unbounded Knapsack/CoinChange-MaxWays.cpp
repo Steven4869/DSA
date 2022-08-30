@@ -37,7 +37,7 @@ int CoinChange(int coins[], int sum, int n)
 
 int main()
 {
-    int coins[] = {2};
+    int coins[] = {1, 2, 3};
     int sum = 3;
     int n = sizeof(coins) / sizeof(coins[0]);
     cout << "Total number of ways are " << CoinChange(coins, sum, n);
