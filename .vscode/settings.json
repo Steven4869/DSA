@@ -16,7 +16,8 @@
     "__string": "cpp",
     "regex": "cpp",
     "unordered_set": "cpp",
-    "iterator": "cpp"
+    "iterator": "cpp",
+    "set": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

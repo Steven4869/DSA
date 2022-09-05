@@ -9,9 +9,27 @@ struct Node
 {
     int data;
     struct Node *left;
-    struct Ndoe *right;
+    struct Node *right;
 };
-Node *helper(vector<int> &nums, start, end)
+struct Node *newNode(int data)
+{
+    struct Node *node = new Node;
+    node->data = data;
+    node->left = node->right = NULL;
+    return (node);
+}
+
+void preOrder(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    cout << root->data << " ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+Node *helper(int nums[], int start, int end)
 {
     if (start > end)
     {
@@ -23,7 +41,15 @@ Node *helper(vector<int> &nums, start, end)
     root->right = helper(nums, mid + 1, end);
     return root;
 }
-Node *sortedArrayToBST(vector<int> nums)
+Node *sortedArrayToBST(int nums[])
 {
     return helper(nums, 0, nums.size() - 1);
+}
+
+int main()
+{
+    int nums[] = {1, 2, 3, 4, 5};
+    int n = sizeof(nums) / sizeof(nums[0]);
+    Node *root = sortedArrayToBST(arr, 0, n - 1);
+    preOrder(root);
 }
