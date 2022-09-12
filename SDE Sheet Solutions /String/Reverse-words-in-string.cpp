@@ -38,3 +38,39 @@ string ReverseWords(string str)
     str.resize(lastIndex);
     return str;
 }
+
+// Another way
+
+string ReverseWordsII(string s)
+{
+    stack<string> st;
+    string temp = "";
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s[i] != "")
+        {
+            temp = temp + s[i];
+            continue;
+        }
+        else
+        {
+            if (temp != "")
+            {
+                st.push(temp);
+            }
+            temp = "";
+        }
+    }
+    if (temp != "")
+    {
+        st.push(temp);
+    }
+    string ans = "";
+    while (!st.empty())
+    {
+        ans = ans + st.top() + "";
+        st.pop();
+    }
+    ans.pop_back();
+    return ans;
+}
