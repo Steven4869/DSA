@@ -37,16 +37,18 @@ void Display(Node *head)
 
 void ReverseLL(Node *head)
 {
-    Node *q = NULL;
-    Node *r = NULL;
-    while (head != NULL)
+    Node *temp = NULL;
+    Node *current = head;
+    Node *prev = NULL;
+
+    while (current != NULL)
     {
-        r = q;
-        q - head;
-        head = head->next;
-        q->next = r;
+        temp = current->next;
+        current->next = prev;
+        prev = current;
+        current = temp;
     }
-    first = q;
+    return prev;
 }
 
 void RecursiveReverseLL(Node *head)

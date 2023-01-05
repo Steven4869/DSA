@@ -46,6 +46,22 @@ void Pairs(int arr[], int target, int n)
         s.insert(arr[i]);
     }
 }
+void TwoSumMap(int arr[], int n, int target)
+{
+    unordered_map<int, int> mp;
+    for (int i = 0; i < n; i++)
+    {
+        if (mp[target - arr[i]] != mp.end())
+        {
+            return {mp[target - arr[i]], i};
+        }
+        else
+        {
+            mp[arr[i]] = i;
+        }
+    }
+    return {-1, -1};
+}
 int main()
 {
     int arr[] = {2, 7, 11, 15};

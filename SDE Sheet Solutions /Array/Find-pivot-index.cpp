@@ -17,7 +17,7 @@ int PivotIndex(int arr[], int n)
     }
     left = sum - arr[0];
     int i = 1;
-    for (int i = 1; i < n; i++)
+    for (i = 1; i < n; i++)
     {
         if (left == right)
         {
@@ -31,4 +31,11 @@ int PivotIndex(int arr[], int n)
         return i - 1;
     }
     return -1;
+}
+
+int main()
+{
+    int arr[] = {1, 7, 3, 6, 5, 6};
+    int n = sizeof(arr) / (arr[0]);
+    cout << PivotIndex(arr, n);
 }
