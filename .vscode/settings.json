@@ -1,5 +1,6 @@
 {
   "files.associations": {
+    "*.embeddedhtml": "html",
     "iostream": "cpp",
     "ostream": "cpp",
     "vector": "cpp",
@@ -19,7 +20,8 @@
     "iterator": "cpp",
     "set": "cpp",
     "ios": "cpp",
-    "span": "cpp"
+    "span": "cpp",
+    "list": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

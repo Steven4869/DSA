@@ -1,71 +1,78 @@
-// arr2asic idea of merge sort is to divide the lists into two element eaxh of the n numarr2er of elements
-// With each iteration, sorting gets reduced arr2y n/2 for example 8 way sort gets reduced to 4 way sort, to 2 way sort
-// It also follows the Divide and Conquer rule
+#include <iostream>
+#include <vector>
 
-#include <bits/stdc++.h>
 using namespace std;
 
-void Merge(int arr[], int low, int mid, int high)
-{
-    int i, j, k;
-    int arr2[100];
-    i = low;
-    j = mid + 1;
-    k = low;
-    // i will go to mid and j will at max go to high
-    while (i <= mid && j <= high)
-    {
-        if (arr[i] < arr[j])
-        {
-            arr2[k++] = arr[i++];
+void Merge(vector<int>& arr, int low, int mid, int high) {
+    int n1 = mid - low + 1;
+    int n2 = high - mid;
+
+    // Create temporary arrays
+    vector<int> left(n1);
+    vector<int> right(n2);
+
+    // Copy data to temporary arrays left[] and right[]
+    for (int i = 0; i < n1; i++) {
+        left[i] = arr[low + i];
+    }
+    for (int j = 0; j < n2; j++) {
+        right[j] = arr[mid + 1 + j];
+    }
+
+    // Merge the two sorted subarrays back into arr[]
+    int i = 0; // Initial index of first subarray
+    int j = 0; // Initial index of second subarray
+    int k = low; // Initial index of merged subarray
+
+    while (i < n1 && j < n2) {
+        if (left[i] <= right[j]) {
+            arr[k++] = left[i++];
+        } else {
+            arr[k++] = right[j++];
         }
-        else
-        {
-            arr2[k++] = arr[j++];
-        }
     }
-    // For the remaining one element run the either loop to insert it
-    for (; i <= mid; i++)
-    {
-        arr2[k++] = arr[i++];
+
+    // Copy the remaining elements of left[], if any
+    while (i < n1) {
+        arr[k++] = left[i++];
     }
-    for (; j <= high; j++)
-    {
-        arr2[k++] = arr[j++];
-    }
-    // All these elemnts should be copies to the first array from array2
-    for (i = low; i <= high; i++)
-    {
-        arr[i] = arr2[i];
+
+    // Copy the remaining elements of right[], if any
+    while (j < n2) {
+        arr[k++] = right[j++];
     }
 }
 
-void MergeSort(int arr[], int low, int high)
-{
-    if (low < high)
-    {
-        // Find the mid element
+void MergeSort(vector<int>& arr, int low, int high) {
+    if (low < high) {
         int mid = low + (high - low) / 2;
-        // Recursivley calling the sort till mid for one list and mid+1 to high for another list
+
+        // Sort first and second halves
         MergeSort(arr, low, mid);
         MergeSort(arr, mid + 1, high);
-        // At last merge the list
+
+        // Merge the sorted halves
         Merge(arr, low, mid, high);
     }
 }
 
-void printArray(int arr[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
-}
+int main() {
+    vector<int>arr = {40, 9, 8, 10, 15, 13, 21, 37};
+    int n = arr.size();
 
-int main()
-{
-    int arr[] = {8, 3, 7, 4, 9, 2, 6, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    MergeSort(arr, 0, n);
-    printArray(arr, n);
+    cout << "Original array: ";
+    for (int i : arr) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    MergeSort(arr, 0, n - 1);
+
+    cout << "Sorted array: ";
+    for (int i : arr) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }

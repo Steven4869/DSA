@@ -28,7 +28,7 @@ int solve(Node *root, int &res)
     int leftTree = solve(root->left, res);
     int rightTree = solve(root->right, res);
 
-    int temp = 1 + max(leftTree + rightTree);
+    int temp = 1 + max(leftTree, rightTree);
     int ans = max(temp, 1 + leftTree + rightTree);
     res = max(res, ans);
     return temp;

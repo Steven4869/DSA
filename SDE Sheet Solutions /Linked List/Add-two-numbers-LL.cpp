@@ -51,7 +51,7 @@ void AddTwoNumbers(struct Node *list1, struct Node *list2)
     while (list1 != NULL || list2 != NULL || carry != 0)
     {
         int sum = 0;
-        if (list != NULL)
+        if (list1 != NULL)
         {
             sum = sum + list1->data;
             list1 = list1->next;

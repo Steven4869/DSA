@@ -49,7 +49,6 @@ bool isCyclicDetect(unordered_map<int,list<int>> &adjList, vector<int> &visited,
         }
     }
     return false;
-
 }
 string CycleDetection(int vertex, vector<pair<int,int>>edges){
     unordered_map<int,list<int>>adjList;
